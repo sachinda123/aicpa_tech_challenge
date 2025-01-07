@@ -1,0 +1,22 @@
+{
+  "name": "aicpa_tech_challenge",
+  "version": "1.0.0",
+  "description": "code test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/sachinda123/aicpa_tech_challenge.git"
+  },
+  "author": "sachinda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sachinda123/aicpa_tech_challenge/issues"
+  },
+  "homepage": "https://github.com/sachinda123/aicpa_tech_challenge#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
