@@ -1,19 +1,21 @@
-import fs from "fs";
-import { PageList } from "../models/models";
+import { readFileSync } from "fs";
 
-export function readFile(path: string): PageList[] {
-  const logData = fs.readFileSync(path, "utf-8");
-  const lines: PageList[] = logData
+import { iPageList } from "../models/models";
+
+export function readFile(path: string): iPageList[] {
+  const logData = readFileSync(path, "utf-8");
+  const lines: iPageList[] = logData
     .split("\n")
-    .filter((line) => line.trim() !== "")
-    .map((line) => {
+    .filter((line: string) => line.trim() !== "")
+    .map((line: string) => {
       const [page, ip] = line.split(" ");
       return { page, ip };
     });
   return lines;
 }
 
-export function getPageViewsCount(lists: PageList[]) {
+export function getPageViewsCount(lists: iPageList[]) {
+  // add interface
   let pageViewCount = new Map<string, number>();
   for (const list of lists) {
     const { page, ip } = list;
@@ -21,9 +23,8 @@ export function getPageViewsCount(lists: PageList[]) {
       pageViewCount.set(page, (pageViewCount.get(page) || 0) + 1);
     }
   }
-
-  console.log("pageViewCount", Object.entries(pageViewCount));
-  // return pageViewCount.sort((a, b) => {
-  //   return a - b;
-  // });
+  // remove any type
+  return [...pageViewCount.entries()].sort((a: any, b: any) => {
+    return b[1] - a[1];
+  });
 }

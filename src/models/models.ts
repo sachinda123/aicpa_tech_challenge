@@ -1,4 +1,4 @@
-export interface PageList {
+export interface iPageList {
   page: string;
   ip: string;
 }
