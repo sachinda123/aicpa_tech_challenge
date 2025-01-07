@@ -5,6 +5,7 @@ const config: Config = {
   testEnvironment: "node",
   testMatch: ["**/tests/**/*.test.ts"],
   verbose: true,
+  setupFiles: ["./jest.setup.ts"],
 };
 
 export default config;
