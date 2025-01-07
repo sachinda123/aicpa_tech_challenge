@@ -11,19 +11,19 @@ Develop a script or application using TypeScript that:
 - Reads the log file and parses each line.
 - Outputs a list of webpages with the most page views, ordered from most to least, for example:
 
-    ```sh
-    /home 90 visits
-    /index 80 visits
-    ...
-    ```
+  ```sh
+  /home 90 visits
+  /index 80 visits
+  ...
+  ```
 
 - Outputs a list of webpages with the most unique page views, ordered from most to least, for example:
 
-    ```sh
-    /products/2 8 unique views
-    /index 5 unique views
-    ...
-    ```
+  ```sh
+  /products/2 8 unique views
+  /index 5 unique views
+  ...
+  ```
 
 ## Notes
 
