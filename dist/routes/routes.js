@@ -9,14 +9,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-// const { readFile, getPageViewsCount } = import("../common/functions");
 const functions_1 = require("../common/functions");
 module.exports = {
     pageViewsCount: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         try {
             const logFilePath = "web.log";
             const data = (0, functions_1.readFile)(logFilePath);
-            let result = yield (0, functions_1.getPageViewsCount)(data);
+            let result = (0, functions_1.getPageViewsCount)(data);
             res.status(200);
             res.send(result);
         }

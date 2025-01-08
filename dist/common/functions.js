@@ -27,9 +27,10 @@ function getPageViewsCount(lists) {
         return b[1] - a[1];
     })
         .map((data) => {
-        return {
+        let retrunElement = {
             pageName: data[0],
             totalViews: data[1],
         };
+        return retrunElement;
     });
 }
