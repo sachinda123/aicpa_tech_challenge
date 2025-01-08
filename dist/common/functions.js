@@ -15,7 +15,6 @@ function readFile(path) {
     return lines;
 }
 function getPageViewsCount(lists) {
-    // add interface
     let pageViewCount = new Map();
     for (const list of lists) {
         const { page, ip } = list;
@@ -23,8 +22,14 @@ function getPageViewsCount(lists) {
             pageViewCount.set(page, (pageViewCount.get(page) || 0) + 1);
         }
     }
-    // remove any type
-    return [...pageViewCount.entries()].sort((a, b) => {
+    return [...pageViewCount.entries()]
+        .sort((a, b) => {
         return b[1] - a[1];
+    })
+        .map((data) => {
+        return {
+            pageName: data[0],
+            totalViews: data[1],
+        };
     });
 }

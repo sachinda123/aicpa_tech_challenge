@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-// const { readFile, getPageViewsCount } = import("../common/functions");
 import { readFile, getPageViewsCount } from "../common/functions";
 
 import { iPageList } from "../models/models";
@@ -9,7 +8,7 @@ module.exports = {
     try {
       const logFilePath: string = "web.log";
       const data: iPageList[] = readFile(logFilePath);
-      let result = await getPageViewsCount(data);
+      let result = getPageViewsCount(data);
       res.status(200);
       res.send(result);
     } catch (error) {

@@ -1,6 +1,5 @@
 import { readFileSync } from "fs";
-
-import { iPageList } from "../models/models";
+import { iPageList, iTotalPageReturn } from "../models/models";
 
 export function readFile(path: string): iPageList[] {
   const logData = readFileSync(path, "utf-8");
@@ -15,7 +14,6 @@ export function readFile(path: string): iPageList[] {
 }
 
 export function getPageViewsCount(lists: iPageList[]) {
-  // add interface
   let pageViewCount = new Map<string, number>();
   for (const list of lists) {
     const { page, ip } = list;
@@ -23,8 +21,15 @@ export function getPageViewsCount(lists: iPageList[]) {
       pageViewCount.set(page, (pageViewCount.get(page) || 0) + 1);
     }
   }
-  // remove any type
-  return [...pageViewCount.entries()].sort((a: any, b: any) => {
-    return b[1] - a[1];
-  });
+  return [...pageViewCount.entries()]
+    .sort((a: [string, number], b: [string, number]) => {
+      return b[1] - a[1];
+    })
+    .map((data: [string, number]) => {
+      let retrunElement: iTotalPageReturn = {
+        pageName: data[0],
+        totalViews: data[1],
+      };
+      return retrunElement;
+    });
 }
