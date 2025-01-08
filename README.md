@@ -95,3 +95,52 @@ Start the Application: In the terminal, from the project root directory, execute
 docker-compose up --build
 
 ```
+
+### Testing end points
+
+To retrieve the list of pages with their view counts:
+
+Send a GET request to http://localhost:3000/page-views-count using your preferred HTTP client (e.g., curl, Postman, or a web browser).
+
+Receive the JSON response, which contains the pages sorted by view count in descending order.
+
+```sh
+[
+  {
+    "pageName": "/contact",
+    "totalViews": 71
+  },
+  {
+    "pageName": "/home",
+    "totalViews": 69
+  },
+  {
+    "pageName": "/index",
+    "totalViews": 67
+  },
+  {
+    "pageName": "/products",
+    "totalViews": 67
+  },
+  {
+    "pageName": "/products/1",
+    "totalViews": 64
+  },
+  {
+    "pageName": "/about",
+    "totalViews": 58
+  },
+  {
+    "pageName": "/products/3",
+    "totalViews": 54
+  },
+  {
+    "pageName": "/products/2",
+    "totalViews": 50
+  }
+]
+
+
+
+
+```
