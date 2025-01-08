@@ -40,7 +40,6 @@ export const getPageViewsCount = (lists: iPageList[]) => {
       return retrunElement;
     });
 };
-
 export const getUniquePageViews = (lists: iPageList[]) => {
   let pageViews: Record<string, string[]> = {};
   for (const list of lists) {

@@ -5,7 +5,6 @@ import { iPageList, iResponse } from "../models/models";
 export const pageViewsCount = async (req: Request, res: Response) => {
   try {
     const logFilePath: string = process.env.LOG_FILE || "web.log";
-    console.log("file", process.env.LOG_FILE);
     const data: iPageList[] = readFile(logFilePath);
     let result = getPageViewsCount(data);
 
@@ -31,7 +30,6 @@ export const pageViewsCount = async (req: Request, res: Response) => {
 export const uniquePageViews = async (req: Request, res: Response) => {
   try {
     const logFilePath: string = process.env.LOG_FILE || "web.log";
-    console.log("file", process.env.LOG_FILE);
     const data: iPageList[] = readFile(logFilePath);
     let result = getUniquePageViews(data);
     let responce: iResponse = {
