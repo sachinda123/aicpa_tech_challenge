@@ -1,0 +1,5 @@
+add;
+import dotenv from "dotenv"; // done
+dotenv.config();
+
+// check import ordrt

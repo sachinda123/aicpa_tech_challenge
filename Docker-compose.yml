@@ -1,11 +1,11 @@
+version: "3.5"
 services:
-  app:
-    build: .
+  aicap-tech:
+    container_name: aicap-tech
+    build: ./
     ports:
       - "3000:3000"
     volumes:
-      - .:/app
-    command: npm run dev
-    environment:
-      - NODE_ENV=development
-      - SEVER_PORT=3000
+      - .:/home/app
+    working_dir: /home/app
+    command: sh -c "npm install && npm run dev"

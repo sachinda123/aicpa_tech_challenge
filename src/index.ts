@@ -1,7 +1,10 @@
-const express = require("express");
-const { pageViewsCount } = require("./routes/routes");
+import express from "express";
+import dotenv from "dotenv";
+import { pageViewsCount } from "./routes/routes";
+
 const sever = express();
-const severPort = 3000;
+dotenv.config();
+const severPort = process.env.APP_PORT || 3000;
 
 sever.get("/page-views-count", pageViewsCount);
 // sever.get("/unique-page-views", getUniquePageViews);
@@ -9,3 +12,5 @@ sever.get("/page-views-count", pageViewsCount);
 sever.listen(severPort, () => {
   console.log("app is running");
 });
+
+export { sever };

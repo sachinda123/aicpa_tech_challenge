@@ -1,7 +1,9 @@
 import { readFileSync } from "fs";
-import { iPageList, iTotalPageReturn } from "../models/models";
+import { Response } from "express";
 
-export function readFile(path: string): iPageList[] {
+import { iPageList, iTotalPageReturn, iResponse } from "../models/models";
+
+export const readFile = (path: string): iPageList[] => {
   const logData = readFileSync(path, "utf-8");
   const lines: iPageList[] = logData
     .split("\n")
@@ -11,9 +13,8 @@ export function readFile(path: string): iPageList[] {
       return { page, ip };
     });
   return lines;
-}
-
-export function getPageViewsCount(lists: iPageList[]) {
+};
+export const getPageViewsCount = (lists: iPageList[]) => {
   let pageViewCount = new Map<string, number>();
   for (const list of lists) {
     const { page, ip } = list;
@@ -32,4 +33,9 @@ export function getPageViewsCount(lists: iPageList[]) {
       };
       return retrunElement;
     });
-}
+};
+export const sendResponce = (res: Response, data: iResponse) => {
+  res.status(data.statusCode);
+  res.send(data.response);
+  res.end();
+};

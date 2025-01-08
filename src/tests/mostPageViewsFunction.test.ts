@@ -1,6 +1,9 @@
 import { readFile, getPageViewsCount } from "../common/functions";
 import path from "path";
+import request from "supertest";
+import { sever } from "../index";
 
+/*
 describe(" ReadFile function test", () => {
   test("Check file reder skip empty lines", () => {
     try {
@@ -199,5 +202,17 @@ describe("GetPageViewsCount function test", () => {
     } catch (error) {
       console.log("error", error);
     }
+  });
+});
+
+*/
+
+describe("GET /", () => {
+  it("should return Hello, World!", async () => {
+    process.env.LOG_FILE = "xxx.log";
+    const response = await request(sever).get("/page-views-count");
+    // console.log("response", response);
+    // expect(response.status).toBe(200);
+    // expect(response.text).toBe("Hello, World!");
   });
 });

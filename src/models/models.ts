@@ -6,3 +6,7 @@ export interface iTotalPageReturn {
   pageName: string;
   totalViews: number;
 }
+export interface iResponse {
+  statusCode: number;
+  response: JSON;
+}

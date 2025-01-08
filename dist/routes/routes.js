@@ -9,19 +9,19 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.pageViewsCount = void 0;
 const functions_1 = require("../common/functions");
-module.exports = {
-    pageViewsCount: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        try {
-            const logFilePath = "web.log";
-            const data = (0, functions_1.readFile)(logFilePath);
-            let result = (0, functions_1.getPageViewsCount)(data);
-            res.status(200);
-            res.send(result);
-        }
-        catch (error) {
-            console.log("error", error);
-        }
-        // console.log("helloe");
-    }),
-};
+const pageViewsCount = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const logFilePath = process.env.LOG_FILE || "web.log";
+        console.log("file", process.env.LOG_FILE);
+        const data = (0, functions_1.readFile)(logFilePath);
+        let result = (0, functions_1.getPageViewsCount)(data);
+        res.status(200);
+        res.send(result);
+    }
+    catch (error) {
+        console.log("error", error);
+    }
+});
+exports.pageViewsCount = pageViewsCount;
