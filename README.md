@@ -11,9 +11,13 @@ Ensure Docker is installed on your system. If not, download and install it from 
 ###### Clone the Repository:
 
 Open your terminal and execute:
-git clone [git@github.com:sachinda123/aicpa_tech_challenge.git](http://https://github.com/sachinda123/aicpa_tech_challenge "git@github.com:sachinda123/aicpa_tech_challenge.git")
+git clone (http://https://github.com/sachinda123/aicpa_tech_challenge "git@github.com:sachinda123/aicpa_tech_challenge.git")
 Navigate to the Project Directory:
+
+```sh
 cd <project_folder>
+```
+
 Open the Project in Your Preferred Editor: Launch your code editor (e.g., Visual Studio Code) and open the project directory.
 
 ##### Running the Application
@@ -28,9 +32,10 @@ Steps:
 
 Modify docker-compose.yml: Open the docker-compose.yml file and locate the service configuration for your application. Update the command property as follows:
 
-yaml
-Copy code
+```sh
 command: sh -c "npm install && npm run dev"
+```
+
 This command ensures that dependencies are installed, and the application runs in development mode. Tools like ts-node are used to watch for code changes and reload the application automatically.
 DEV.TO
 
