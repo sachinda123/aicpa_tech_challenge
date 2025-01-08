@@ -140,7 +140,51 @@ Receive the JSON response, which contains the pages sorted by view count in desc
   }
 ]
 
+```
 
+To retrieve the list of pages with their unique view counts:
+
+Send a GET request to http://localhost:3000/unique-page-views using your preferred HTTP client (e.g., curl, Postman, or a web browser).
+
+Receive the JSON response, which contains the pages sorted by view count in descending order.
+
+```sh
+[
+  {
+    "pageName": "/contact",
+    "totalViews": 60
+  },
+  {
+    "pageName": "/home",
+    "totalViews": 58
+  },
+  {
+    "pageName": "/products",
+    "totalViews": 58
+  },
+  {
+    "pageName": "/index",
+    "totalViews": 53
+  },
+  {
+    "pageName": "/products/1",
+    "totalViews": 52
+  },
+  {
+    "pageName": "/products/3",
+    "totalViews": 48
+  },
+  {
+    "pageName": "/about",
+    "totalViews": 47
+  },
+  {
+    "pageName": "/products/2",
+    "totalViews": 43
+  }
+]
 
 
 ```
+
+Thank you! I hope you enjoy coding.:smiley
