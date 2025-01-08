@@ -26,7 +26,7 @@ Open the Project in Your Preferred Editor:
 
 The application can be run in two modes: Development and Production.
 
-###### 1. Development Mode
+### 1. Development Mode
 
 This mode is intended for development purposes, allowing for hot-reloading when code changes are made.
 
@@ -74,7 +74,7 @@ npm run test
 
 This will execute the test suite, and the results will be displayed in the terminal.
 
-###### 2. Production Mode
+### 2. Production Mode
 
 This mode is used to deploy the application in a production environment.
 
