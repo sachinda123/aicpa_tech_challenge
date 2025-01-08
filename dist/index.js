@@ -12,7 +12,7 @@ exports.app = app;
 dotenv_1.default.config();
 const severPort = process.env.APP_PORT || 3000;
 app.get("/page-views-count", routes_1.pageViewsCount);
-// sever.get("/unique-page-views", getUniquePageViews);
+app.get("/unique-page-views", routes_1.uniquePageViews);
 app.listen(severPort, () => {
     console.log("app is running");
 });

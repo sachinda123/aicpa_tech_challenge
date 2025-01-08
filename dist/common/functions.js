@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.sendResponce = exports.getPageViewsCount = exports.readFile = void 0;
+exports.getUniquePageViews = exports.getPageViewsCount = exports.sendResponce = exports.readFile = void 0;
 const fs_1 = require("fs");
 const readFile = (path) => {
     const logData = (0, fs_1.readFileSync)(path, "utf-8");
@@ -14,6 +14,13 @@ const readFile = (path) => {
     return lines;
 };
 exports.readFile = readFile;
+const sendResponce = (res, data) => {
+    res.status(data.statusCode);
+    res.send(data.response);
+    res.end();
+    return;
+};
+exports.sendResponce = sendResponce;
 const getPageViewsCount = (lists) => {
     let pageViewCount = new Map();
     for (const list of lists) {
@@ -35,10 +42,27 @@ const getPageViewsCount = (lists) => {
     });
 };
 exports.getPageViewsCount = getPageViewsCount;
-const sendResponce = (res, data) => {
-    res.status(data.statusCode);
-    res.send(data.response);
-    res.end();
-    return;
+const getUniquePageViews = (lists) => {
+    let pageViews = {};
+    for (const list of lists) {
+        const { page, ip } = list;
+        if (ip && page) {
+            if (!pageViews[page]) {
+                pageViews[page] = [];
+            }
+            pageViews[page].push(ip);
+        }
+    }
+    let uniquePageViews = [...Object.entries(pageViews)].map((data) => {
+        let uniq = [...new Set(data[1])].length;
+        let retrunElement = {
+            pageName: data[0],
+            totalViews: uniq,
+        };
+        return retrunElement;
+    });
+    return uniquePageViews.sort((a, b) => {
+        return b.totalViews - a.totalViews;
+    });
 };
-exports.sendResponce = sendResponce;
+exports.getUniquePageViews = getUniquePageViews;
