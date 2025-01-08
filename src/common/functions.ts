@@ -14,6 +14,12 @@ export const readFile = (path: string): iPageList[] => {
     });
   return lines;
 };
+export const sendResponce = (res: Response, data: iResponse) => {
+  res.status(data.statusCode);
+  res.send(data.response);
+  res.end();
+  return;
+};
 export const getPageViewsCount = (lists: iPageList[]) => {
   let pageViewCount = new Map<string, number>();
   for (const list of lists) {
@@ -34,8 +40,27 @@ export const getPageViewsCount = (lists: iPageList[]) => {
       return retrunElement;
     });
 };
-export const sendResponce = (res: Response, data: iResponse) => {
-  res.status(data.statusCode);
-  res.send(data.response);
-  res.end();
+
+export const getUniquePageViews = (lists: iPageList[]) => {
+  let pageViews: Record<string, string[]> = {};
+  for (const list of lists) {
+    const { page, ip } = list;
+    if (ip && page) {
+      if (!pageViews[page]) {
+        pageViews[page] = [];
+      }
+      pageViews[page].push(ip);
+    }
+  }
+  let uniquePageViews = [...Object.entries(pageViews)].map((data) => {
+    let uniq: number = [...new Set(data[1])].length;
+    let retrunElement: iTotalPageReturn = {
+      pageName: data[0],
+      totalViews: uniq,
+    };
+    return retrunElement;
+  });
+  return uniquePageViews.sort((a: iTotalPageReturn, b: iTotalPageReturn) => {
+    return b.totalViews - a.totalViews;
+  });
 };

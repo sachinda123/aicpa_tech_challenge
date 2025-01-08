@@ -17,11 +17,24 @@ const pageViewsCount = (req, res) => __awaiter(void 0, void 0, void 0, function*
         console.log("file", process.env.LOG_FILE);
         const data = (0, functions_1.readFile)(logFilePath);
         let result = (0, functions_1.getPageViewsCount)(data);
-        res.status(200);
-        res.send(result);
+        let responce = {
+            statusCode: 200,
+            response: result,
+        };
+        return (0, functions_1.sendResponce)(res, responce);
     }
     catch (error) {
-        console.log("error", error);
+        let responseReturn = {
+            statusCode: 500,
+            response: "",
+        };
+        if (error instanceof Error) {
+            responseReturn.response = error.message;
+        }
+        else {
+            responseReturn.response = "An unknown error occurred";
+        }
+        return (0, functions_1.sendResponce)(res, responseReturn);
     }
 });
 exports.pageViewsCount = pageViewsCount;

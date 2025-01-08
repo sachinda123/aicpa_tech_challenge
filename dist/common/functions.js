@@ -1,9 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.readFile = readFile;
-exports.getPageViewsCount = getPageViewsCount;
+exports.sendResponce = exports.getPageViewsCount = exports.readFile = void 0;
 const fs_1 = require("fs");
-function readFile(path) {
+const readFile = (path) => {
     const logData = (0, fs_1.readFileSync)(path, "utf-8");
     const lines = logData
         .split("\n")
@@ -13,8 +12,9 @@ function readFile(path) {
         return { page, ip };
     });
     return lines;
-}
-function getPageViewsCount(lists) {
+};
+exports.readFile = readFile;
+const getPageViewsCount = (lists) => {
     let pageViewCount = new Map();
     for (const list of lists) {
         const { page, ip } = list;
@@ -33,4 +33,12 @@ function getPageViewsCount(lists) {
         };
         return retrunElement;
     });
-}
+};
+exports.getPageViewsCount = getPageViewsCount;
+const sendResponce = (res, data) => {
+    res.status(data.statusCode);
+    res.send(data.response);
+    res.end();
+    return;
+};
+exports.sendResponce = sendResponce;

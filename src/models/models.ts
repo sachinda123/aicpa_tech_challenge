@@ -8,5 +8,5 @@ export interface iTotalPageReturn {
 }
 export interface iResponse {
   statusCode: number;
-  response: JSON;
+  response: Object;
 }
