@@ -9,8 +9,8 @@ const dotenv_1 = __importDefault(require("dotenv"));
 const routes_1 = require("./routes/routes");
 const app = (0, express_1.default)();
 exports.app = app;
-dotenv_1.default.config();
 const severPort = process.env.APP_PORT || 3000;
+dotenv_1.default.config();
 app.get("/page-views-count", routes_1.pageViewsCount);
 app.get("/unique-page-views", routes_1.uniquePageViews);
 app.listen(severPort, () => {

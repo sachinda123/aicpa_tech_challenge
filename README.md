@@ -83,7 +83,7 @@ Steps:
 Modify docker-compose.yml: Open the docker-compose.yml file and update the command property for your application service:
 
 ```sh
-command: sh -c "npm install && npm run build && npm run start"
+command: sh -c "npm install && npm run test && npm run build && npm run start"
 
 ```
 
