@@ -14,9 +14,9 @@ export const readFile = (path: string): iPageList[] => {
     });
   return lines;
 };
-export const sendResponce = (res: Response, data: iResponse) => {
+export const sendResponce = (res: Response, data: iResponse, enableData: boolean) => {
   res.status(data.statusCode);
-  res.send(data.response);
+  enableData ? res.send(data.response) : res.send({ message: data.response });
   res.end();
   return;
 };

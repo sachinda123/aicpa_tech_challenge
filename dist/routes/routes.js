@@ -20,7 +20,7 @@ const pageViewsCount = (req, res) => __awaiter(void 0, void 0, void 0, function*
             statusCode: 200,
             response: result,
         };
-        return (0, functions_1.sendResponce)(res, responce);
+        return (0, functions_1.sendResponce)(res, responce, true);
     }
     catch (error) {
         let responseReturn = {
@@ -33,7 +33,7 @@ const pageViewsCount = (req, res) => __awaiter(void 0, void 0, void 0, function*
         else {
             responseReturn.response = "An unknown error occurred";
         }
-        return (0, functions_1.sendResponce)(res, responseReturn);
+        return (0, functions_1.sendResponce)(res, responseReturn, false);
     }
 });
 exports.pageViewsCount = pageViewsCount;
@@ -46,7 +46,7 @@ const uniquePageViews = (req, res) => __awaiter(void 0, void 0, void 0, function
             statusCode: 200,
             response: result,
         };
-        return (0, functions_1.sendResponce)(res, responce);
+        return (0, functions_1.sendResponce)(res, responce, true);
     }
     catch (error) {
         let responseReturn = {
@@ -59,7 +59,7 @@ const uniquePageViews = (req, res) => __awaiter(void 0, void 0, void 0, function
         else {
             responseReturn.response = "An unknown error occurred";
         }
-        return (0, functions_1.sendResponce)(res, responseReturn);
+        return (0, functions_1.sendResponce)(res, responseReturn, false);
     }
 });
 exports.uniquePageViews = uniquePageViews;

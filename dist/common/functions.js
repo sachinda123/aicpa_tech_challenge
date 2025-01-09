@@ -14,9 +14,9 @@ const readFile = (path) => {
     return lines;
 };
 exports.readFile = readFile;
-const sendResponce = (res, data) => {
+const sendResponce = (res, data, enableData) => {
     res.status(data.statusCode);
-    res.send(data.response);
+    enableData ? res.send(data.response) : res.send({ message: data.response });
     res.end();
     return;
 };

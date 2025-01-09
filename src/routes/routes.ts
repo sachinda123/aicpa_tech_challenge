@@ -12,7 +12,7 @@ export const pageViewsCount = async (req: Request, res: Response) => {
       statusCode: 200,
       response: result,
     };
-    return sendResponce(res, responce);
+    return sendResponce(res, responce, true);
   } catch (error) {
     let responseReturn: iResponse = {
       statusCode: 500,
@@ -23,7 +23,7 @@ export const pageViewsCount = async (req: Request, res: Response) => {
     } else {
       responseReturn.response = "An unknown error occurred";
     }
-    return sendResponce(res, responseReturn);
+    return sendResponce(res, responseReturn, false);
   }
 };
 
@@ -36,7 +36,7 @@ export const uniquePageViews = async (req: Request, res: Response) => {
       statusCode: 200,
       response: result,
     };
-    return sendResponce(res, responce);
+    return sendResponce(res, responce, true);
   } catch (error) {
     let responseReturn: iResponse = {
       statusCode: 500,
@@ -47,6 +47,6 @@ export const uniquePageViews = async (req: Request, res: Response) => {
     } else {
       responseReturn.response = "An unknown error occurred";
     }
-    return sendResponce(res, responseReturn);
+    return sendResponce(res, responseReturn, false);
   }
 };
