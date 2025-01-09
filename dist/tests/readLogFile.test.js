@@ -17,7 +17,7 @@ describe(" ReadFile function test", () => {
             console.log("error", error);
         }
     });
-    test("Check large log file read properly 10000 logs", () => {
+    test("Check 10000 logs", () => {
         try {
             const filePath = path_1.default.join(process.cwd(), "src", "./tests/sample/10000.log");
             const result = (0, functions_1.readFile)(filePath);
@@ -28,7 +28,7 @@ describe(" ReadFile function test", () => {
             console.log("error", error);
         }
     });
-    test("Check large log file read properly 20000 logs", () => {
+    test("Check 20000 logs", () => {
         try {
             const filePath = path_1.default.join(process.cwd(), "src", "./tests/sample/20000.log");
             const result = (0, functions_1.readFile)(filePath);

@@ -2,7 +2,7 @@ import { readFile, getPageViewsCount } from "../common/functions";
 import path from "path";
 
 describe("GetPageViewsCount function test", () => {
-  test("Check log file with empty and non support records ->  /order check/ page names and count check /unsupport log line skip check", () => {
+  test("Check log file with empty and non support records ", () => {
     try {
       const filePath = path.join(process.cwd(), "src", "./tests/sample/withEmptyLine.log");
       const result = readFile(filePath);
@@ -40,7 +40,7 @@ describe("GetPageViewsCount function test", () => {
       console.log("error", error);
     }
   });
-  test("Check log valied 500 records ->  /order check/ page names and count check ", () => {
+  test("Check  500 logs ", () => {
     try {
       const filePath = path.join(process.cwd(), "src", "./tests/sample/500.log");
       const result = readFile(filePath);
@@ -82,7 +82,7 @@ describe("GetPageViewsCount function test", () => {
       console.log("error", error);
     }
   });
-  test("Check log valied 10000 records ->  /order check/ page names and count check ", () => {
+  test("Check 10000 logs", () => {
     try {
       const filePath = path.join(process.cwd(), "src", "./tests/sample/10000.log");
       const result = readFile(filePath);
@@ -124,7 +124,7 @@ describe("GetPageViewsCount function test", () => {
       console.log("error", error);
     }
   });
-  test("Check log valied 20000 records ->  /order check/ page names and count check ", () => {
+  test("Check 20000 logs", () => {
     try {
       const filePath = path.join(process.cwd(), "src", "./tests/sample/20000.log");
       const result = readFile(filePath);

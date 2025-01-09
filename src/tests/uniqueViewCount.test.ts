@@ -2,7 +2,7 @@ import { readFile, getUniquePageViews, getPageViewsCount } from "../common/funct
 import path from "path";
 
 describe("getUniquePageViews function test", () => {
-  test("Check  32 logs with order", () => {
+  test("Check  32 logs", () => {
     try {
       const filePath = path.join(process.cwd(), "src", "./tests/sample/32.log");
       const result = readFile(filePath);
@@ -27,7 +27,7 @@ describe("getUniquePageViews function test", () => {
       console.log("error", error);
     }
   });
-  test("Check 500 logs  with order ", () => {
+  test("Check 500 logs ", () => {
     try {
       const filePath = path.join(process.cwd(), "src", "./tests/sample/500.log");
       const result = readFile(filePath);
@@ -61,7 +61,7 @@ describe("getUniquePageViews function test", () => {
       console.log("error", error);
     }
   });
-  test("Check 10000 logs  with order ", () => {
+  test("Check 10000 logs", () => {
     try {
       const filePath = path.join(process.cwd(), "src", "./tests/sample/10000.log");
       const result = readFile(filePath);
@@ -95,7 +95,7 @@ describe("getUniquePageViews function test", () => {
       console.log("error", error);
     }
   });
-  test("Check 20000 logs  with order ", () => {
+  test("Check 20000 logs", () => {
     try {
       const filePath = path.join(process.cwd(), "src", "./tests/sample/20000.log");
       const result = readFile(filePath);

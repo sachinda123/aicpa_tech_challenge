@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const functions_1 = require("../common/functions");
 const path_1 = __importDefault(require("path"));
 describe("getUniquePageViews function test", () => {
-    test("Check  32 logs with order", () => {
+    test("Check  32 logs", () => {
         try {
             const filePath = path_1.default.join(process.cwd(), "src", "./tests/sample/32.log");
             const result = (0, functions_1.readFile)(filePath);
@@ -27,7 +27,7 @@ describe("getUniquePageViews function test", () => {
             console.log("error", error);
         }
     });
-    test("Check 500 logs  with order ", () => {
+    test("Check 500 logs ", () => {
         try {
             const filePath = path_1.default.join(process.cwd(), "src", "./tests/sample/500.log");
             const result = (0, functions_1.readFile)(filePath);
@@ -54,7 +54,7 @@ describe("getUniquePageViews function test", () => {
             console.log("error", error);
         }
     });
-    test("Check 10000 logs  with order ", () => {
+    test("Check 10000 logs", () => {
         try {
             const filePath = path_1.default.join(process.cwd(), "src", "./tests/sample/10000.log");
             const result = (0, functions_1.readFile)(filePath);
@@ -81,7 +81,7 @@ describe("getUniquePageViews function test", () => {
             console.log("error", error);
         }
     });
-    test("Check 20000 logs  with order ", () => {
+    test("Check 20000 logs", () => {
         try {
             const filePath = path_1.default.join(process.cwd(), "src", "./tests/sample/20000.log");
             const result = (0, functions_1.readFile)(filePath);
