@@ -10,4 +10,3 @@ services:
     working_dir: /home/app
     # command: sh -c "npm install && npm run dev" # development enviroment
     command: sh -c "npm install && npm run test && npm run build && npm run start" # production enviroment
-
