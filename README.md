@@ -187,4 +187,4 @@ Receive the JSON response, which contains the pages sorted by view count in desc
 
 ```
 
-Thank you! I hope you enjoy coding.:smiley:
+Thank you! I hope you enjoy coding. :smiley:
